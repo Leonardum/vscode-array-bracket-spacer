@@ -1,0 +1,25 @@
+{
+  "name": "array-bracket-spacer",
+  "displayName": "Array Bracket Spacer",
+  "description": "In TypeScript files, adds spaces inside array brackets for array definitions and array destructuring, but not for array accessing.",
+  "version": "0.0.1",
+  "publisher": "Leonardum",
+  "engines": {
+    "vscode": "^1.101.2"
+  },
+  "activationEvents": [
+    "onWillSaveTextDocument"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "array-bracket-spacer.formatArrays",
+        "title": "Format Array Brackets"
+      }
+    ]
+  },
+  "dependencies": {
+    "@types/vscode": "^1.101.0"
+  }
+}
