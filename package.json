@@ -12,16 +12,41 @@
     "vscode": "^1.101.2"
   },
   "activationEvents": [
-    "onWillSaveTextDocument"
+    "onWillSaveTextDocument",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "array-bracket-spacer.formatArrays",
-        "title": "Format Array Brackets"
+        "title": "Array Bracket Spacer",
+        "command": "array-bracket-spacer.formatArrays"
       }
-    ]
+    ],
+    "languages": [
+      {
+        "id": "typescript",
+        "extensions": [".ts"],
+        "aliases": ["TypeScript"]
+      },
+      {
+        "id": "typescriptreact",
+        "extensions": [".tsx"],
+        "aliases": ["TypeScript React"]
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Array Bracket Spacer",
+      "properties": {
+        "arrayBracketSpacer.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable array bracket spacing formatter"
+        }
+      }
+    }
   },
   "dependencies": {
     "@types/vscode": "^1.101.0"
