@@ -1,9 +1,13 @@
 {
   "name": "array-bracket-spacer",
   "displayName": "Array Bracket Spacer",
-  "description": "In TypeScript files, adds spaces inside array brackets for array definitions and array destructuring, but not for array accessing.",
+  "description": " VSCode formatter that adds spaces after array opening brackets and before array closing brackets in TypeScript files upon saving. However, this formatter will exclude array accessing from this rule.",
   "version": "0.0.1",
   "publisher": "Leonardum",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Leonardum/vscode-array-bracket-spacer.git"
+  },
   "engines": {
     "vscode": "^1.101.2"
   },
