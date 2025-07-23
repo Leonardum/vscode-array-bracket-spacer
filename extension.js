@@ -3,8 +3,10 @@ const vscode = require('vscode');
 function normalizeArrays(text) {
   const formatted = text.replace(/\[\s*([^\[\]\n]+?)\s*\]/g, (match, p1, offset) => {
     const prevChar = text[offset - 1] || '';
+    const prevPrevChar = text[offset - 2] || ''; // Needed to exclude array declaraions preceeded by a spread operator.
+
     const isLikelyAccess =  prevChar
-      ? /[\w\)\]\.]/.test(prevChar)
+      ? /[\w\)\]\.\/\^]/.test(prevChar) && prevPrevChar !== '.'
       : false;
 
     return isLikelyAccess || !p1.trim() // Likely array access or empty array, so do not add the spaces.
