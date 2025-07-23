@@ -16,8 +16,8 @@ function normalizeArrays(text) {
 }
 
 function removeSpacesBeforeSelfClosingTags(text) {
-  const formatted = text.replace(/\s*\/>/g, () => {
-    return '/>';
+  const formatted = text.replace(/[^\s]\s\/>/g, (match) => {
+    return `${match[0]}/>`;
   });
 
   return formatted;
